@@ -168,8 +168,8 @@ if __name__ == "__main__":
     app = QApplication(sys.argv)
     app.setWindowIcon(QIcon("logo.ico"))
 
-    urlconfig = 'https://raw.githubusercontent.com/tuananh140102/tool/main/update.json'
-    urltool = 'https://github.com/tuananh140102/tool/raw/main/Telegram_pro.exe'
+    urlconfig = 'https://raw.githubusercontent.com/pamtrg/Telegram_Pro/main/update.json'
+    urltool = 'https://github.com/pamtrg/Telegram_Pro/raw/main/Telegram_pro.exe'
     Dialog = UI_Update(urlconfig,urltool,name_ver)
 
 
