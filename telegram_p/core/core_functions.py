@@ -95,7 +95,7 @@ class Core_Functions:
   
         tableWidget : PyTableWidget = self.ui.tableWidget__seeding
         tableWidget.setRowCount(0)
-        print(len(df.values))
+      
         try:
             for data in df.values:
                 for i in data:
@@ -344,7 +344,7 @@ class Core_Functions:
 
 
 
-    def removeAccount(self:MainWindow,remove):
+    def removeAccount(self:MainWindow,remove = False):
         
         tableWidget__home: PyTableWidget = self.ui.tableWidget__home
         index_list = tableWidget__home.getSelected()  

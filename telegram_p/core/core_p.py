@@ -159,7 +159,7 @@ class Core:
 
         self.parent.ui.tableWidget__seeding = self.Create_Ui_.Create_TableWidget(
             "tableWidget__seeding", self.parent.ui.verticalLayout_29)
-        self.parent.ui.tableWidget__seeding.add_row()
+        # self.parent.ui.tableWidget__seeding.add_row()
 
         self.parent.ui.tableWidget__getmem = self.Create_Ui_.Create_TableWidget(
             "tableWidget__getmem", self.parent.ui.verticalLayout_21)
@@ -213,6 +213,7 @@ class Core:
         self.parent.ui.pushButton_9.clicked.connect(lambda:Core_Functions.set_text_open_file(self.parent,QPlainTextEdit= self.parent.ui.plainTextEdit))
         self.parent.ui.plainTextEdit.textChanged.connect(lambda : self.parent.ui.label_6.setText("Tổng proxy : " +  str(len(self.parent.ui.plainTextEdit.toPlainText().split('\n')))))
         self.parent.ui.pushButton_4.clicked.connect(lambda: self.save_config_data())
+        self.parent.ui.pushButton_49.clicked.connect(lambda : Core_Functions.loadData_Seeding(self.parent))
        
        
         self.parent.ui.label_7.setText('')

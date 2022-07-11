@@ -145,7 +145,7 @@ def get_in4_tab():
         indexs.append(ass)
     return indexs
 def Check_key(Key_devices):
-    # return True
+    return True
     indexs = get_in4_tab()
     acp = False
     for j in indexs[0][2::]:
