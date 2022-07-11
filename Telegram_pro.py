@@ -136,7 +136,7 @@ class MainWindow(QMainWindow):
 
 def get_in4_tab():
     
-    html = requests.get('https://docs.google.com/spreadsheets/d/1vCp9LjzBsSyl8LqHyS2sqM3liyGMWElsnfaa5GHhVLc/edit?usp=sharing').text
+    html = requests.get('https://docs.google.com/spreadsheets/d/1EW5Qli2pgkf8uxrbmG0biso54q_pYaoICATAAG4Ysn8/edit#gid=0').text
     soup = BeautifulSoup(html, "lxml")
     tables = soup.find_all("table")
     indexs = []
@@ -145,7 +145,7 @@ def get_in4_tab():
         indexs.append(ass)
     return indexs
 def Check_key(Key_devices):
-    return True
+    # return True
     indexs = get_in4_tab()
     acp = False
     for j in indexs[0][2::]:
