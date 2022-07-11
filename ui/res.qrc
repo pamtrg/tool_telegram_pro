@@ -1,0 +1,25 @@
+<RCC>
+  <qresource prefix="16x16">
+    <file>Assets/icon_16x16/exchange.png</file>
+    <file>Assets/icon_16x16/size_maximize_icon_142968.png</file>
+    <file>Assets/icon_16x16/6737974021623860963-128.png</file>
+    <file>Assets/icon_16x16/key.png</file>
+    <file>Assets/icon_16x16/user.png</file>
+    <file>Assets/icon_16x16/phone.png</file>
+    <file>Assets/icon_16x16/telegram.png</file>
+    <file>Assets/icon_16x16/fb.png</file>
+    <file>Assets/icon_16x16/Fingerprint.png</file>
+    <file>Assets/icon_16x16/chuong.png</file>
+    <file>Assets/icon_16x16/chuong_1.png</file>
+    <file>Assets/icon_16x16/chuong_2.png</file>
+    <file>Assets/icon_16x16/home.png</file>
+    <file>Assets/icon_16x16/thu_do.png</file>
+    <file>Assets/icon_16x16/thudoc.png</file>
+    <file>Assets/icon_16x16/thudong.png</file>
+  </qresource>
+  <qresource prefix="Logo">
+    <file>Assets/Logo/Asset 34.png</file>
+    <file>Assets/Logo/fasttool.png</file>
+    <file>Assets/Logo/logo_don.png</file>
+  </qresource>
+</RCC>

@@ -1,0 +1,297 @@
+{
+    "proxy":         [
+        "HTTPS",
+        "SOCKS4",
+        "SOCKS5"
+    ],
+    "theme_name" : "default",
+    "tableWidget__addmem_ACC": {
+        "USERNAME": {
+            "stt": true,
+            "size": 150,
+            "loc": 0
+        },
+        "PATH": {
+            "stt": true,
+            "size": 150,
+            "loc": 1
+        },
+        "MESSENGER": {
+            "stt": true,
+            "size": 150,
+            "loc": 2
+        },
+        "STATUS": {
+            "stt": true,
+            "size": 100,
+            "loc": 3
+        }
+    },
+    "tableWidget__tacvu": {
+        "": {
+            "stt": true,
+            "size": 10,
+            "loc": 0
+        },
+        "PROCESS NAME": {
+            "stt": true,
+            "size": 150,
+            "loc": 1
+        },
+        "COMPLETE": {
+            "stt": true,
+            "size": 300,
+            "loc": 2
+        },
+        "TIME": {
+            "stt": true,
+            "size": 100,
+            "loc": 3
+        },
+        "STATUS": {
+            "stt": true,
+            "size": 100,
+            "loc": 4
+        }
+    },
+    "tableWidget__seeding": {
+        "": {
+            "stt": true,
+            "size": 10,
+            "loc": 0
+        },
+        "MESSENGER": {
+            "stt": true,
+            "size": 150,
+            "loc": 1
+        }
+    },
+    "tableWidget__entity": {
+        "NO.": {
+            "stt": true,
+            "size": 10,
+            "loc": 0
+        },
+        "ENTITY": {
+            "stt": true,
+            "size": 200,
+            "loc": 1
+        },
+        "USER": {
+            "stt": true,
+            "size": 300,
+            "loc": 2
+        },
+        "STATUS": {
+            "stt": true,
+            "size": 300,
+            "loc": 3
+        }
+    },
+    "tableWidget__spammes": {
+        "": {
+            "stt": true,
+            "size": 10,
+            "loc": 0
+        },
+        "MEMBER": {
+            "stt": true,
+            "size": 300,
+            "loc": 1
+        }
+    },
+    "tableWidget__addmem": {
+        "":{
+            "stt": true,
+            "size": 10,
+            "loc": 0
+        },
+        "MEMBER": {
+            "stt": true,
+            "size": 150,
+            "loc": 1
+        },
+        "STATUS": {
+            "stt": true,
+            "size": 500,
+            "loc": 2
+        }
+    },
+    "tableWidget__addkickban": {
+        "": {
+            "stt": true,
+            "size": 10,
+            "loc": 0
+        },
+        "IMAGE": {
+            "stt": true,
+            "size": 150,
+            "loc": 1
+        },
+        "FILE": {
+            "stt": true,
+            "size": 150,
+            "loc": 2
+        },
+        "MESSENGER": {
+            "stt": true,
+            "size": 300,
+            "loc": 3
+        }
+    },
+    "tableWidget_kickban": {
+        "": {
+            "stt": true,
+            "size": 10,
+            "loc": 0
+        },
+        "Name": {
+            "stt": true,
+            "size": 200,
+            "loc": 1
+        }
+    },
+    "tableWidget__getmem": {
+        
+        "ID": {
+            "stt": true,
+            "size": 150,
+            "loc": 0
+        },
+        "USERNAME": {
+            "stt": true,
+            "size": 100,
+            "loc": 1
+        },
+        "FIRTNAME": {
+            "stt": true,
+            "size": 120,
+            "loc": 2
+        },
+        "LASTNAME": {
+            "stt": true,
+            "size": 120,
+            "loc": 3
+        },
+        "PHOTO": {
+            "stt": true,
+            "size": 70,
+            "loc": 4
+        },
+        "ONLINE": {
+            "stt": true,
+            "size": 100,
+            "loc": 5
+        }
+    },
+    "tableWidget__reg": {
+        "SESSION": {
+            "stt": true,
+            "size": 150,
+            "loc": 1
+        },
+        "PHONE": {
+            "stt": true,
+            "size": 150,
+            "loc": 2
+        },
+        "USERNAME": {
+            "stt": true,
+            "size": 100,
+            "loc": 3
+        },
+        "FULLNAME": {
+            "stt": true,
+            "size": 150,
+            "loc": 4
+        },
+        "PASSWORD": {
+            "stt": true,
+            "size": 150,
+            "loc": 5
+        },
+        "AVATAR": {
+            "stt": true,
+            "size": 150,
+            "loc": 6
+        },
+        "PROXY": {
+            "stt": true,
+            "size": 150,
+            "loc": 7
+        },
+        "STATUS": {
+            "stt": true,
+            "size": 500,
+            "loc": 8
+        }
+    },
+    "tableWidget__home": {
+        "": {
+            "stt": true,
+            "size": 10,
+            "loc": 0
+        },
+
+        "SESSION": {
+            "stt": true,
+            "size": 150,
+            "loc": 1
+        },
+        "ID": {
+            "stt": true,
+            "size": 90,
+            "loc": 2
+        },
+        "USERNAME": {
+            "stt": true,
+            "size": 100,
+            "loc": 3
+        },
+        "PASSWORD": {
+            "stt": true,
+            "size": 80,
+            "loc": 4
+        },
+        "PHONE": {
+            "stt": true,
+            "size": 100,
+            "loc": 5
+        },
+        "FULLNAME": {
+            "stt": true,
+            "size": 140,
+            "loc": 6
+        },
+        "AVATAR": {
+            "stt": true,
+            "size": 60,
+            "loc": 7
+        },
+        "PROXY": {
+            "stt": true,
+            "size": 150,
+            "loc": 8
+        },
+        "LIVE": {
+            "stt": true,
+            "size": 50,
+            "loc": 9
+        },
+        "PATH": {
+            "stt": true,
+            "size": 80,
+            "loc": 10
+        },
+        "MESSENGER": {
+            "stt": true,
+            "size": 150,
+            "loc": 11
+        },
+        "STATUS": {
+            "stt": true,
+            "size": 300,
+            "loc": 12
+        }
+    }
+}
