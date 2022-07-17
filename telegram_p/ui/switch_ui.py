@@ -48,7 +48,21 @@ class switch_Tab:
         self.parent.ui.pushButton_28.clicked.connect(lambda:self.switch_spam(self.parent.ui.pushButton_28))
 
         self.parent.ui.pushButton_20.clicked.connect(lambda:self.parent.ui.stackedWidget_6.setCurrentWidget(self.parent.ui.page_90))
-        self.parent.ui.pushButton_31.clicked.connect(lambda:self.parent.ui.stackedWidget_6.setCurrentWidget(self.parent.ui.page_7))
+        self.parent.ui.pushButton_31.clicked.connect(lambda:[
+            self.parent.ui.stackedWidget_6.setCurrentWidget(self.parent.ui.page_7),
+            self.parent.ui.stackedWidget_22.setCurrentWidget(self.parent.ui.stackedWidget_22Page1),
+            self.parent.ui.checkBox_10.show(),
+            self.parent.ui.frame_19.show()
+        ])
+        self.parent.ui.pushButton_5.clicked.connect(lambda:[
+            self.parent.ui.stackedWidget_6.setCurrentWidget(self.parent.ui.page_7),
+            self.parent.ui.stackedWidget_22.setCurrentWidget(self.parent.ui.page_12),
+            self.parent.ui.checkBox_10.hide(),
+            self.parent.ui.frame_19.hide()
+        ])
+
+
+        # self.parent.ui.pushButton_5.clicked.connect(lambda:self.parent.ui.stackedWidget_6.setCurrentWidget(self.parent.ui.page_7))
         self.parent.ui.comboBox_8.currentTextChanged.connect(self.on_combobox_changed)
     def on_combobox_changed(self,value):
         # print(value)

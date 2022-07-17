@@ -4658,6 +4658,16 @@ QPushButton:focus {
                       </property>
                      </widget>
                     </item>
+                    <item>
+                     <widget class="QPushButton" name="pushButton_5">
+                      <property name="styleSheet">
+                       <string notr="true">color: rgb(255, 255, 255);</string>
+                      </property>
+                      <property name="text">
+                       <string>Kịch bản</string>
+                      </property>
+                     </widget>
+                    </item>
                    </layout>
                   </widget>
                  </item>
@@ -5778,30 +5788,35 @@ background-color: rgb(33, 37, 43);</string>
                       </widget>
                      </item>
                      <item>
-                      <widget class="QWidget" name="widget_22" native="true">
+                      <widget class="QStackedWidget" name="stackedWidget_22">
                        <property name="minimumSize">
                         <size>
                          <width>750</width>
                          <height>0</height>
                         </size>
                        </property>
-                       <layout class="QVBoxLayout" name="verticalLayout_29">
-                        <property name="spacing">
-                         <number>0</number>
-                        </property>
-                        <property name="leftMargin">
-                         <number>0</number>
-                        </property>
-                        <property name="topMargin">
-                         <number>0</number>
-                        </property>
-                        <property name="rightMargin">
-                         <number>0</number>
-                        </property>
-                        <property name="bottomMargin">
-                         <number>0</number>
-                        </property>
-                       </layout>
+                       <widget class="QWidget" name="stackedWidget_22Page1" native="true">
+                        <layout class="QVBoxLayout" name="verticalLayout_29">
+                         <property name="spacing">
+                          <number>0</number>
+                         </property>
+                         <property name="leftMargin">
+                          <number>0</number>
+                         </property>
+                         <property name="topMargin">
+                          <number>0</number>
+                         </property>
+                         <property name="rightMargin">
+                          <number>0</number>
+                         </property>
+                         <property name="bottomMargin">
+                          <number>0</number>
+                         </property>
+                        </layout>
+                       </widget>
+                       <widget class="QWidget" name="page_12">
+                        <layout class="QVBoxLayout" name="verticalLayout_55"/>
+                       </widget>
                       </widget>
                      </item>
                     </layout>

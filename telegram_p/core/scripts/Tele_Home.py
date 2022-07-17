@@ -291,6 +291,8 @@ class Telegram_Home:
                 await self.Spam_Tinnhan()
             elif function_run == 'spam_seeding':
                 await self.spam_seeding()
+            elif function_run == 'spam_scripts':
+                await self.spam_scripts()
             elif function_run == 'Export All Contact in Account':
                 await self.Export_all_contact()
             elif function_run == 'Remove ALL Contact in Account':
@@ -298,6 +300,82 @@ class Telegram_Home:
 
             elif function_run == 'chane_in4_account':
                 await self.Change_in4_account()
+
+    async def spam_scripts(self):
+        otp_seeding = self.cauhinh['otp_scripts']
+        linkgr = otp_seeding['entity']
+        queue_Key:  queue.Queue = otp_seeding['queue_Key']
+        list_id: dict = otp_seeding['list_id']
+        acctiveChats : dict = otp_seeding['acctiveChat']
+        while True:
+            acctiveChat  = otp_seeding['acctiveChat'].get(self.data_account['SESSION']['data'])
+            if acctiveChat == False:
+                print(acctiveChats)
+                self._Set_stt('Đang đợi đến lượt !')
+                await asyncio.sleep(1)
+            else:
+                # if queue_Key.empty():
+                #     self._Set_stt('Hết tin nhắn !', 'MESSENGER')
+                #     self._Set_stt('Hoàn thành !')
+
+                #     await asyncio.sleep(1)
+                #     return
+                    
+                self._Set_stt('Đã lấy được tin nhắn !')
+                data = queue_Key.get()
+                print(data)
+                session = data['SESSION']['data']
+                if session == self.data_account['SESSION']['data']:
+                    Id = data['ID']['data']
+                    text = data['MESSENGER']['data']
+                    File = data['FILE']['data']
+                    if File != 'None':
+                        # check exist file
+                        if not os.path.exists(File):
+                            self._Set_stt('File không tồn tại gửi kèm !')
+                            File = None
+                    else:
+                        File = None   
+                            
+                    reply = data['REPLY']['data']
+                    if reply != 'None':
+                        reply_to = list_id.get(reply)
+                        if reply_to:
+                            self._Set_stt('Đang gửi tin nhắn !')
+                            rs = await self.cilent.send_message(entity=linkgr,message=text,file=File,reply_to=reply_to)
+                            self._Set_stt('Đã gửi tin nhắn !')
+                        else:
+                            self._Set_stt('Không tìm thấy ID của tin nhắn !')
+                    else:
+                        self._Set_stt('Đang gửi tin nhắn !')
+                        rs = await self.cilent.send_message(entity=linkgr,message=text,file=File)
+                        self._Set_stt('Đã gửi tin nhắn !')
+
+                    list_id[Id] = rs.id
+                    cd = 0
+                    for i,j in acctiveChats.items():
+                        print(acctiveChats)
+                        if i == session:
+                            self.cauhinh['otp_scripts']['acctiveChat'][i] = False
+                           
+                            cd = 1
+                        elif cd == 1:
+                            try:
+                                self.cauhinh['otp_scripts']['acctiveChat'][i] = True
+                                cd = 0
+                            except Exception as e:
+                                print(e, 'end')
+
+                    
+                    await self._Delay()
+                    
+                    queue_Key.task_done()
+
+                    
+
+                
+
+
 
     async def spam_seeding(self):
         otp_seeding = self.cauhinh['otp_seeding']
@@ -746,19 +824,19 @@ class Telegram_Home:
             messages.reverse()
             scrMes = {}
             a = 0
-            with open('Messages.txt', 'w',encoding='utf-8-sig') as f:
-                for message in messages:
-                    f.write(str(message) + '\n')
-                    list_message.append(message.message)
-                    scrMes[a] = {
-                        "message": message.message,
-                        "id_msg": message.id,
-                        "reply_to": message.reply_to_msg_id,
-                        "user_id": message.from_id.user_id,
-                    }
-                    a += 1
-            with open('message.json', 'w',encoding='utf-8-sig') as f:
-                json.dump(scrMes, f, indent=4)
+
+            for message in messages:
+              
+                list_message.append(message.message)
+            #     scrMes[a] = {
+            #         "message": message.message,
+            #         "id_msg": message.id,
+            #         "reply_to": message.reply_to_msg_id,
+            #         "user_id": message.from_id.user_id,
+            #     }
+            #     a += 1
+            # with open('message.json', 'w',encoding='utf-8-sig') as f:
+            #     json.dump(scrMes, f, indent=4)
             # for message in messages:
             #     # print(message)
             #     list_message.append(message.message)
@@ -769,14 +847,30 @@ class Telegram_Home:
             worksheet = workbook.add_worksheet()
 
             row = 0
-            col = 0
+            col = 2
 
             for message in (list_message):
                 worksheet.write(row, col, message)
+                worksheet.write(row, col+1, 'None')
+                worksheet.write(row, col+2, 'None')
 
                 row += 1
 
             workbook.close()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     async def Buff_view_post_(self, list_enti, condition):
         if condition['Otp'] == 'Buff view post by link Channel':

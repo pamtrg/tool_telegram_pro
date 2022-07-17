@@ -78,7 +78,38 @@
             "loc": 1
         }
     },
-
+    "tableWidget__scripts": {
+        "": {
+            "stt": true,
+            "size": 10,
+            "loc": 0
+        },
+        "SESSION": {
+            "stt": true,
+            "size": 150,
+            "loc": 1
+        },
+        "ID": {
+            "stt": true,
+            "size": 150,
+            "loc": 2
+        },
+        "MESSENGER": {
+            "stt": true,
+            "size": 150,
+            "loc": 3
+        },
+        "FILE": {
+            "stt": true,
+            "size": 150,
+            "loc": 4
+        },
+        "REPLY": {
+            "stt": true,
+            "size": 150,
+            "loc": 5
+        }
+    },
 
 
     "tableWidget__entity": {

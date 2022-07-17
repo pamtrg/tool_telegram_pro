@@ -10,6 +10,7 @@
 
 from qt_core import *
 from resources_rc import *
+
 class Ui_Fasttool_Telegram_UI(object):
     def setupUi(self, Fasttool_Telegram_UI):
         if not Fasttool_Telegram_UI.objectName():
@@ -2492,6 +2493,12 @@ class Ui_Fasttool_Telegram_UI(object):
 
         self.horizontalLayout_15.addWidget(self.pushButton_31, 0, Qt.AlignLeft)
 
+        self.pushButton_5 = QPushButton(self.frame_9)
+        self.pushButton_5.setObjectName(u"pushButton_5")
+        self.pushButton_5.setStyleSheet(u"color: rgb(255, 255, 255);")
+
+        self.horizontalLayout_15.addWidget(self.pushButton_5)
+
 
         self.verticalLayout_17.addWidget(self.frame_9, 0, Qt.AlignLeft)
 
@@ -3099,15 +3106,23 @@ class Ui_Fasttool_Telegram_UI(object):
 
         self.horizontalLayout_21.addWidget(self.widget_17)
 
-        self.widget_22 = QWidget(self.page_7)
-        self.widget_22.setObjectName(u"widget_22")
-        self.widget_22.setMinimumSize(QSize(750, 0))
-        self.verticalLayout_29 = QVBoxLayout(self.widget_22)
+        self.stackedWidget_22 = QStackedWidget(self.page_7)
+        self.stackedWidget_22.setObjectName(u"stackedWidget_22")
+        self.stackedWidget_22.setMinimumSize(QSize(750, 0))
+        self.stackedWidget_22Page1 = QWidget()
+        self.stackedWidget_22Page1.setObjectName(u"stackedWidget_22Page1")
+        self.verticalLayout_29 = QVBoxLayout(self.stackedWidget_22Page1)
         self.verticalLayout_29.setSpacing(0)
         self.verticalLayout_29.setObjectName(u"verticalLayout_29")
         self.verticalLayout_29.setContentsMargins(0, 0, 0, 0)
+        self.stackedWidget_22.addWidget(self.stackedWidget_22Page1)
+        self.page_12 = QWidget()
+        self.page_12.setObjectName(u"page_12")
+        self.verticalLayout_55 = QVBoxLayout(self.page_12)
+        self.verticalLayout_55.setObjectName(u"verticalLayout_55")
+        self.stackedWidget_22.addWidget(self.page_12)
 
-        self.horizontalLayout_21.addWidget(self.widget_22)
+        self.horizontalLayout_21.addWidget(self.stackedWidget_22)
 
         self.stackedWidget_6.addWidget(self.page_7)
 
@@ -3614,6 +3629,7 @@ class Ui_Fasttool_Telegram_UI(object):
         self.stt_thanhcong.setText(QCoreApplication.translate("Fasttool_Telegram_UI", u"Success :", None))
         self.pushButton_20.setText(QCoreApplication.translate("Fasttool_Telegram_UI", u"Spam", None))
         self.pushButton_31.setText(QCoreApplication.translate("Fasttool_Telegram_UI", u"Seeding", None))
+        self.pushButton_5.setText(QCoreApplication.translate("Fasttool_Telegram_UI", u"K\u1ecbch b\u1ea3n", None))
         self.pushButton_42.setText(QCoreApplication.translate("Fasttool_Telegram_UI", u"Open", None))
         self.lineEdit_22.setPlaceholderText(QCoreApplication.translate("Fasttool_Telegram_UI", u"\u0110\u01b0\u1eddng D\u1eabn File....", None))
         self.pushButton_43.setText(QCoreApplication.translate("Fasttool_Telegram_UI", u"Open", None))

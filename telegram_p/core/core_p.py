@@ -163,6 +163,11 @@ class Core:
 
         self.parent.ui.tableWidget__seeding = self.Create_Ui_.Create_TableWidget(
             "tableWidget__seeding", self.parent.ui.verticalLayout_29)
+
+        self.parent.ui.tableWidget__scripts = self.Create_Ui_.Create_TableWidget(
+            "tableWidget__scripts", self.parent.ui.verticalLayout_55)
+
+
         # self.parent.ui.tableWidget__seeding.add_row()
 
         self.parent.ui.tableWidget__getmem = self.Create_Ui_.Create_TableWidget(

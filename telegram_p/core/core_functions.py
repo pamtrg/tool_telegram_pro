@@ -92,21 +92,39 @@ class Core_Functions:
         Core_Functions.set_text_open_file(self,QLine = self.ui.lineEdit_24)
         
         df = read_excel(self.ui.lineEdit_24.text(),keep_default_na=False,index_col=None, header=None)
-  
-        tableWidget : PyTableWidget = self.ui.tableWidget__seeding
-        tableWidget.setRowCount(0)
-      
-        try:
-            for data in df.values:
-                for i in data:
-                    if i != '':
+        if self.ui.stackedWidget_22.currentIndex() == 0:
+            tableWidget : PyTableWidget = self.ui.tableWidget__seeding
+            tableWidget.setRowCount(0)
+            try:
+                for data in df.values:
+                    for i in data:
+                        if i != '' or i != 'None':
 
-                        row = tableWidget.add_row()
-                        
-                        # print(i)
-                        tableWidget.add_value_tab(row,[i])
-        except Exception as e:
-            print(e)
+                            row = tableWidget.add_row()
+                            
+                            # print(i)
+                            tableWidget.add_value_tab(row,[i])
+            except Exception as e:
+                print(e)
+        elif self.ui.stackedWidget_22.currentIndex() == 1:
+            tableWidget : PyTableWidget = self.ui.tableWidget__scripts
+            tableWidget.setRowCount(0)
+            for data in df.values:
+                
+ 
+                vl = [i for i in data]
+                if vl[0] == '' or vl[0] == 'None':
+                    continue
+                elif vl[1] == '' or vl[1] == 'None':
+                    continue
+                elif vl[2] == '' and vl[3] == 'None':
+                    continue
+           
+                
+                # print(i)
+                row = tableWidget.add_row()
+                tableWidget.add_value_tab(row,vl)
+
 
 
     def Checklive(self:MainWindow):
@@ -556,21 +574,51 @@ class Core_Functions:
                     {'list_user':queue_Key}
                 )
             elif index_nhomkenh == 1:
-                ftn = 'spam_seeding'
-                tableWidget__seeding : PyTableWidget = parent.ui.tableWidget__seeding 
-                loop_ = parent.ui.spinBox_7.value()
-                queue_Key = queue.Queue()
-                for _ in range(loop_):
+                if parent.ui.stackedWidget_22.currentIndex() == 0:
+                    ftn = 'spam_seeding'
+                    tableWidget__seeding : PyTableWidget = parent.ui.tableWidget__seeding 
+                    loop_ = parent.ui.spinBox_7.value()
+                    queue_Key = queue.Queue()
+                    for _ in range(loop_):
+                        
+                        for key in tableWidget__seeding.get_data_from_table():
+                            queue_Key.put(key)
+
+
+                    Config_run['otp_seeding'] = {'list_text':queue_Key,
+                        'reply':parent.ui.checkBox_10.isChecked(),
+                        'list_id':[],
+                        'entity':parent.ui.lineEdit_2.text()
+                        }
+                elif parent.ui.stackedWidget_22.currentIndex() == 1:
+                    ftn = 'spam_scripts'
                     
-                    for key in tableWidget__seeding.get_data_from_table():
+                    tableWidget__scripts : PyTableWidget = parent.ui.tableWidget__scripts
+                    loop_ = parent.ui.spinBox_7.value()
+                    queue_Key = queue.Queue()
+                    list_acctive_log = []
+                    acctiveChat = {}
+
+                    a = 0
+                    for key in tableWidget__scripts.get_data_from_table():
+                        print(key)
+                        list_acctive_log.append(key['SESSION']['data'])
+                        if a == 0:
+                            acctiveChat[key['SESSION']['data']] = True
+                            a = 1
+                        else:
+                            acctiveChat[key['SESSION']['data']] = False
                         queue_Key.put(key)
 
 
-                Config_run['otp_seeding'] = {'list_text':queue_Key,
-                    'reply':parent.ui.checkBox_10.isChecked(),
-                    'list_id':[],
-                    'entity':parent.ui.lineEdit_2.text()
-                    }
+                    Config_run['otp_scripts'] = {
+                        'acctiveLog':list_acctive_log,
+                        'acctiveChat':acctiveChat,
+                        'queue_Key':queue_Key,
+                        'list_id':{},
+                        'entity':parent.ui.lineEdit_2.text()
+                        }
+                
                 
 
             return ftn

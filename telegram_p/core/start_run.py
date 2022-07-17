@@ -76,6 +76,16 @@ class Tele_Home:
                             self.parent.core.signals.Notif_updated.emit('STATUS',data_account['row'],Messages_Noti.ConvertFailed)
 
                     else:
+                        if self.cauhinh['function_run'] == 'spam_scripts':
+                            if data_account['SESSION']['data'] not in self.cauhinh['otp_scripts']['acctiveLog']:
+                                self.parent.core.signals.Notif_updated.emit('STATUS',data_account['row'],f'Tài khoản không nằm trong danh sách kịch bản !')
+                              
+                                continue
+                    
+
+
+
+
                         try:
                             count_proxy = self.List_check['count_proxy']
                             keyproxy = self.list_proxy[count_proxy]
@@ -90,9 +100,9 @@ class Tele_Home:
                                 proxy = (socks.HTTP, proxy[0], int(proxy[1]), True)
                             elif otp_proxy == 'NONE':
                                 proxy = None
-                            # else:
-                            #     self.parent.core.signals.Notif_stt.emit('Vui lòng import Proxy')
-                            #     return
+                            elif len(proxy) > 2:
+                                self.parent.core.signals.Notif_updated.emit('Proxy sai dịnh dạng !')
+                                return
         
               
                             
