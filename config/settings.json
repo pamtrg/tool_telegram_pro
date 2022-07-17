@@ -66,6 +66,21 @@
             "loc": 1
         }
     },
+    "tableWidget__seeding_channel": {
+        "": {
+            "stt": true,
+            "size": 10,
+            "loc": 0
+        },
+        "MESSENGER": {
+            "stt": true,
+            "size": 150,
+            "loc": 1
+        }
+    },
+
+
+
     "tableWidget__entity": {
         "NO.": {
             "stt": true,

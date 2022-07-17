@@ -6,7 +6,7 @@ from multiprocessing import Queue
 from time import sleep
 import random
 import os
-import string
+import string,json
 from Telegram_pro import MainWindow
 import datetime
 import names
@@ -245,7 +245,7 @@ class Telegram_Home:
         if await self.check_connect():
             self._Set_stt(Messages_Noti.VeryLogin)
         else:
-            self._Set_stt("Tài khoản đã bị khóa!")
+            self._Set_stt(Messages_Noti.ErrorLogin)
             self._Update_Data({'LIVE': 'False'})
             return
         if await self.check_live():
@@ -326,19 +326,33 @@ class Telegram_Home:
                 text = que_text.get()
                 text = text['MESSENGER']['data']
                 try:
-                    a = random.randint(1, 5)
-                    if a == 3:
-                        if len(list_id):
-                            reply_to = random.choice(list_id)
-                            rs = await self.cilent.send_message(TypeInputChannel_ADD, text, reply_to)
+                    if self.parent.ui.checkBox_10.isChecked():
+                        a = random.randint(1, 10)
+                        if a == 3:
+                            print('Đang spam !')
+                            if len(list_id):
+                                reply_to = random.choice(list_id)
+                              
+                                rs = await self.cilent.send_message(
+                                    entity=TypeInputChannel_ADD, message=text, reply_to=reply_to)
+                            else:
+                                rs = await self.cilent.send_message(
+                                    entity=TypeInputChannel_ADD, message=text)
+                        else:
+                            rs = await self.cilent.send_message(TypeInputChannel_ADD, text)
                     else:
                         rs = await self.cilent.send_message(TypeInputChannel_ADD, text)
                     self._Set_stt(f'Gửi {text} thành công !')
                     list_id.append(rs.id)
                 except Exception as e:
+                    # print(e)
                     if 'banned from sending messages' in str(e):
                         self._Set_stt(str(e))
                         return
+                    else:
+                        self._Set_stt(str(e))
+                        await self._Delay()
+                        continue
 
                 await self._Delay()
 
@@ -448,9 +462,10 @@ class Telegram_Home:
                 if otp_change_in4['2fa']['otp'] == 'Change':
                     try:
                         current_password = self.data_account['PASSWORD']['data']
-                        if current_password != True:
+                        # print(current_password)
+                        if current_password == '':
                             current_password = None
-
+                        # print(current_password)
                         await self.cilent.edit_2fa(current_password=current_password, new_password=otp_change_in4['2fa']['pasw'])
                         self._Update_Data(
                             {'PASSWORD': otp_change_in4['2fa']['pasw']})
@@ -458,8 +473,13 @@ class Telegram_Home:
                         self._Set_stt(
                             otp_change_in4['2fa']['pasw'], 'PASSWORD')
                     except Exception as e:
-                        self._Set_stt('Change 2FA thất bại !')
-                        print(e)
+                        if 'The password (and thus its hash value)' in str(e):
+                            self._Set_stt('Mật khẩu cũ không đúng !')
+                        else:
+                            self._Set_stt(str(e),'MESSENGER')
+                            self._Set_stt('Change 2FA thất bại !')
+                            print(e)
+                     
 
 
     async def Remove_all_contacts(self):
@@ -724,9 +744,24 @@ class Telegram_Home:
             list_message = []
             messages = await self.cilent.get_messages(group, limit=condition['CountMessages'])
             messages.reverse()
-            for message in messages:
-                # print(message)
-                list_message.append(message.message)
+            scrMes = {}
+            a = 0
+            with open('Messages.txt', 'w',encoding='utf-8-sig') as f:
+                for message in messages:
+                    f.write(str(message) + '\n')
+                    list_message.append(message.message)
+                    scrMes[a] = {
+                        "message": message.message,
+                        "id_msg": message.id,
+                        "reply_to": message.reply_to_msg_id,
+                        "user_id": message.from_id.user_id,
+                    }
+                    a += 1
+            with open('message.json', 'w',encoding='utf-8-sig') as f:
+                json.dump(scrMes, f, indent=4)
+            # for message in messages:
+            #     # print(message)
+            #     list_message.append(message.message)
                 # print(message.message)
             if os.path.exists('Member/Scrape') == False:
                 os.makedirs('Member/Scrape')
@@ -829,32 +864,34 @@ class Telegram_Home:
             #     self._Set_stt('Không có group nào để tiện ích !','MESSENGER')
             #     return
 
-            self.list_text = self.cauhinh['otp_group_tienich']['list_text']
-            # self.cilent.add_event_handler(self.message_handler_comment_channel, events.NewMessage(chats=list_check,incoming=True))
+            self.list_text = condition['list_text']
+            if condition['Otp'] == 'Buff comment by link Channel':
+                self.cilent.add_event_handler(self.message_handler_comment_channel, events.NewMessage(chats=list_check,incoming=True))
 
-            # await self.allways_run()
+                await self.allways_run()
+            else:
 
-            dict_check = {}
-            for group in list_enti:
-                if 't.me/c/' in group:
-                    # self._Set_stt(f'Group {group} phải là công khai !','MESSENGER')
-                    continue
-                sr = group.split('/')[-1]
+                dict_check = {}
+                for group in list_enti:
+                    if 't.me/c/' in group:
+                        # self._Set_stt(f'Group {group} phải là công khai !','MESSENGER')
+                        continue
+                    sr = group.split('/')[-1]
 
-                channel = group.replace('https://t.me/', '').split('/')[0]
-                # check exist in dict
-                if dict_check.get(channel.split('|')[0]) == None:
-                    dict_check[channel.split('|')[0]] = []
-                dict_check[channel.split('|')[0]].append(sr)
+                    channel = group.replace('https://t.me/', '').split('/')[0]
+                    # check exist in dict
+                    if dict_check.get(channel.split('|')[0]) == None:
+                        dict_check[channel.split('|')[0]] = []
+                    dict_check[channel.split('|')[0]].append(sr)
 
-            for channel, j in dict_check.items():
-                list_id = [int(i) for i in j]
-                # for id_ in list_id:
-                #     self._Set_stt(f'Buff view post {channel}','MESSENGER')
-                for postid in list_id:
-                    text = random.choice(self.list_text)
-                    await self.cilent.send_message(channel, text, comment_to=postid)
-                    await self._Delay()
+                for channel, j in dict_check.items():
+                    list_id = [int(i) for i in j]
+                    # for id_ in list_id:
+                    #     self._Set_stt(f'Buff view post {channel}','MESSENGER')
+                    for postid in list_id:
+                        text = random.choice(self.list_text)
+                        await self.cilent.send_message(channel, text, comment_to=postid)
+                        await self._Delay()
 
         elif otp_tienich == 'Buff reaction post Channel or Group':
             await self.Buff_reaction_post_Channel_or_Group(list_enti, condition)
@@ -1312,7 +1349,7 @@ class Telegram_Home:
 
             list_admin.append(str(user.id))
         self.parent.core.signals.get_admin.emit(list_admin)
-
+        
         try:
             total_list_member = len(
                 self.cauhinh['otp_member_get']['list_member'])

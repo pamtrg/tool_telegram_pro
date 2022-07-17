@@ -577,7 +577,7 @@ class Ui_Fasttool_Telegram_UI(object):
         self.horizontalLayout_2 = QHBoxLayout(self.frame)
         self.horizontalLayout_2.setSpacing(20)
         self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
-        self.horizontalLayout_2.setContentsMargins(10, 0, 0, 30)
+        self.horizontalLayout_2.setContentsMargins(11, 0, 0, 30)
         self.btn_quanlyaccount = QPushButton(self.frame)
         self.btn_quanlyaccount.setObjectName(u"btn_quanlyaccount")
         self.btn_quanlyaccount.setMinimumSize(QSize(0, 0))
@@ -1475,6 +1475,7 @@ class Ui_Fasttool_Telegram_UI(object):
         self.comboBox_8.addItem("")
         self.comboBox_8.addItem("")
         self.comboBox_8.addItem("")
+        self.comboBox_8.addItem("")
         self.comboBox_8.setObjectName(u"comboBox_8")
         self.comboBox_8.setMinimumSize(QSize(0, 40))
         self.comboBox_8.setStyleSheet(u"\n"
@@ -1851,6 +1852,7 @@ class Ui_Fasttool_Telegram_UI(object):
         self.verticalLayout_19.setObjectName(u"verticalLayout_19")
         self.checkBox_23 = QCheckBox(self.widget_16)
         self.checkBox_23.setObjectName(u"checkBox_23")
+        self.checkBox_23.setEnabled(False)
         self.checkBox_23.setMinimumSize(QSize(0, 40))
 
         self.verticalLayout_19.addWidget(self.checkBox_23)
@@ -1907,6 +1909,119 @@ class Ui_Fasttool_Telegram_UI(object):
         self.verticalLayout_20.addWidget(self.frame_46)
 
         self.stackedWidget_3.addWidget(self.page_6)
+        self.page_11 = QWidget()
+        self.page_11.setObjectName(u"page_11")
+        self.verticalLayout_46 = QVBoxLayout(self.page_11)
+        self.verticalLayout_46.setSpacing(0)
+        self.verticalLayout_46.setObjectName(u"verticalLayout_46")
+        self.verticalLayout_46.setContentsMargins(0, 0, 0, 0)
+        self.frame_55 = QFrame(self.page_11)
+        self.frame_55.setObjectName(u"frame_55")
+        self.frame_55.setMinimumSize(QSize(0, 50))
+        self.frame_55.setMaximumSize(QSize(16777215, 16777215))
+        self.frame_55.setStyleSheet(u"background-color: rgb(33, 37, 43)")
+        self.frame_55.setFrameShape(QFrame.StyledPanel)
+        self.frame_55.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_23 = QHBoxLayout(self.frame_55)
+        self.horizontalLayout_23.setObjectName(u"horizontalLayout_23")
+        self.widget_29 = QWidget(self.frame_55)
+        self.widget_29.setObjectName(u"widget_29")
+        self.widget_29.setMinimumSize(QSize(0, 100))
+        self.verticalLayout_34 = QVBoxLayout(self.widget_29)
+        self.verticalLayout_34.setObjectName(u"verticalLayout_34")
+        self.verticalLayout_34.setContentsMargins(0, 0, -1, -1)
+        self.frame_57 = QFrame(self.widget_29)
+        self.frame_57.setObjectName(u"frame_57")
+        self.frame_57.setStyleSheet(u"background-color: rgb(52, 59, 72);")
+        self.frame_57.setFrameShape(QFrame.StyledPanel)
+        self.frame_57.setFrameShadow(QFrame.Raised)
+        self.gridLayout_10 = QGridLayout(self.frame_57)
+        self.gridLayout_10.setObjectName(u"gridLayout_10")
+        self.radioButton_23 = QRadioButton(self.frame_57)
+        self.radioButton_23.setObjectName(u"radioButton_23")
+
+        self.gridLayout_10.addWidget(self.radioButton_23, 1, 0, 1, 1)
+
+        self.lineEdit_26 = QLineEdit(self.frame_57)
+        self.lineEdit_26.setObjectName(u"lineEdit_26")
+        self.lineEdit_26.setMinimumSize(QSize(0, 40))
+        self.lineEdit_26.setStyleSheet(u"\n"
+"QLineEdit {\n"
+"background-color: rgb(33, 37, 43);\n"
+"color: rgb(255, 255, 255);\n"
+"	border-radius: 5px;\n"
+"\n"
+"	padding-left: 10px;\n"
+"}\n"
+"QLineEdit:hover {\n"
+"	border: 2px solid rgb(64, 71, 88);\n"
+"}\n"
+"QLineEdit:focus {\n"
+"	border: 2px solid rgb(91, 101, 124);\n"
+"}")
+
+        self.gridLayout_10.addWidget(self.lineEdit_26, 0, 1, 1, 1)
+
+        self.btn_start_2 = QPushButton(self.frame_57)
+        self.btn_start_2.setObjectName(u"btn_start_2")
+        self.btn_start_2.setMinimumSize(QSize(100, 40))
+        self.btn_start_2.setStyleSheet(u"\n"
+"QPushButton {\n"
+"background-color: rgb(100, 139, 212);\n"
+"}\n"
+"QPushButton:pressed {\n"
+"background-color: rgb(255, 255, 255);\n"
+"\n"
+"}")
+
+        self.gridLayout_10.addWidget(self.btn_start_2, 0, 0, 1, 1)
+
+        self.radioButton_24 = QRadioButton(self.frame_57)
+        self.radioButton_24.setObjectName(u"radioButton_24")
+
+        self.gridLayout_10.addWidget(self.radioButton_24, 1, 1, 1, 1)
+
+
+        self.verticalLayout_34.addWidget(self.frame_57, 0, Qt.AlignTop)
+
+        self.widget_30 = QWidget(self.widget_29)
+        self.widget_30.setObjectName(u"widget_30")
+        self.verticalLayout_54 = QVBoxLayout(self.widget_30)
+        self.verticalLayout_54.setSpacing(0)
+        self.verticalLayout_54.setObjectName(u"verticalLayout_54")
+        self.verticalLayout_54.setContentsMargins(0, 0, 0, 0)
+        self.plainTextEdit_15 = QPlainTextEdit(self.widget_30)
+        self.plainTextEdit_15.setObjectName(u"plainTextEdit_15")
+        self.plainTextEdit_15.setStyleSheet(u"background-color: rgb(52, 59, 72)")
+
+        self.verticalLayout_54.addWidget(self.plainTextEdit_15)
+
+
+        self.verticalLayout_34.addWidget(self.widget_30)
+
+
+        self.horizontalLayout_23.addWidget(self.widget_29)
+
+        self.widget_31 = QWidget(self.frame_55)
+        self.widget_31.setObjectName(u"widget_31")
+        self.widget_31.setMinimumSize(QSize(200, 0))
+        self.verticalLayout_47 = QVBoxLayout(self.widget_31)
+        self.verticalLayout_47.setSpacing(0)
+        self.verticalLayout_47.setObjectName(u"verticalLayout_47")
+        self.verticalLayout_47.setContentsMargins(0, 0, 0, 0)
+        self.plainTextEdit_14 = QPlainTextEdit(self.widget_31)
+        self.plainTextEdit_14.setObjectName(u"plainTextEdit_14")
+        self.plainTextEdit_14.setStyleSheet(u"background-color: rgb(52, 59, 72)")
+
+        self.verticalLayout_47.addWidget(self.plainTextEdit_14)
+
+
+        self.horizontalLayout_23.addWidget(self.widget_31)
+
+
+        self.verticalLayout_46.addWidget(self.frame_55)
+
+        self.stackedWidget_3.addWidget(self.page_11)
 
         self.verticalLayout_49.addWidget(self.stackedWidget_3)
 
@@ -2363,7 +2478,7 @@ class Ui_Fasttool_Telegram_UI(object):
         self.horizontalLayout_15 = QHBoxLayout(self.frame_9)
         self.horizontalLayout_15.setSpacing(20)
         self.horizontalLayout_15.setObjectName(u"horizontalLayout_15")
-        self.horizontalLayout_15.setContentsMargins(0, 0, 0, 30)
+        self.horizontalLayout_15.setContentsMargins(11, 0, 0, 30)
         self.pushButton_20 = QPushButton(self.frame_9)
         self.pushButton_20.setObjectName(u"pushButton_20")
         self.pushButton_20.setStyleSheet(u"color: rgb(255, 255, 255);")
@@ -3336,7 +3451,7 @@ class Ui_Fasttool_Telegram_UI(object):
 
         self.stackedWidget_4.setCurrentIndex(0)
         self.stackedWidget.setCurrentIndex(0)
-        self.getmemandaddmem.setCurrentIndex(2)
+        self.getmemandaddmem.setCurrentIndex(0)
         self.stackedWidget_3.setCurrentIndex(1)
         self.stackedWidget_6.setCurrentIndex(1)
         self.stackedWidget_19.setCurrentIndex(0)
@@ -3434,11 +3549,12 @@ class Ui_Fasttool_Telegram_UI(object):
         self.btn_tienichgroup_channel.setText(QCoreApplication.translate("Fasttool_Telegram_UI", u"Utilities", None))
         self.comboBox_8.setItemText(0, QCoreApplication.translate("Fasttool_Telegram_UI", u"Join Group Or Channel", None))
         self.comboBox_8.setItemText(1, QCoreApplication.translate("Fasttool_Telegram_UI", u"Leave Groups or Channel", None))
-        self.comboBox_8.setItemText(2, QCoreApplication.translate("Fasttool_Telegram_UI", u"Buff view post Channel", None))
-        self.comboBox_8.setItemText(3, QCoreApplication.translate("Fasttool_Telegram_UI", u"Buff reaction post Channel or Group", None))
-        self.comboBox_8.setItemText(4, QCoreApplication.translate("Fasttool_Telegram_UI", u"Buff Online", None))
-        self.comboBox_8.setItemText(5, QCoreApplication.translate("Fasttool_Telegram_UI", u"Scrape Data Message", None))
-        self.comboBox_8.setItemText(6, QCoreApplication.translate("Fasttool_Telegram_UI", u"Join Video Call", None))
+        self.comboBox_8.setItemText(2, QCoreApplication.translate("Fasttool_Telegram_UI", u"Comment channel", None))
+        self.comboBox_8.setItemText(3, QCoreApplication.translate("Fasttool_Telegram_UI", u"Buff view post Channel", None))
+        self.comboBox_8.setItemText(4, QCoreApplication.translate("Fasttool_Telegram_UI", u"Buff reaction post Channel or Group", None))
+        self.comboBox_8.setItemText(5, QCoreApplication.translate("Fasttool_Telegram_UI", u"Buff Online", None))
+        self.comboBox_8.setItemText(6, QCoreApplication.translate("Fasttool_Telegram_UI", u"Scrape Data Message", None))
+        self.comboBox_8.setItemText(7, QCoreApplication.translate("Fasttool_Telegram_UI", u"Join Video Call", None))
 
         self.radioButton_20.setText(QCoreApplication.translate("Fasttool_Telegram_UI", u"leave the Groups or Channel by link", None))
         self.radioButton_15.setText(QCoreApplication.translate("Fasttool_Telegram_UI", u"leave group all groups and channels", None))
@@ -3464,6 +3580,13 @@ class Ui_Fasttool_Telegram_UI(object):
         self.lineEdit_19.setPlaceholderText(QCoreApplication.translate("Fasttool_Telegram_UI", u"Count Messages", None))
         self.label_14.setText(QCoreApplication.translate("Fasttool_Telegram_UI", u"Count Messages", None))
         self.plainTextEdit_13.setPlaceholderText(QCoreApplication.translate("Fasttool_Telegram_UI", u"Link Group Or Channel", None))
+        self.radioButton_23.setText(QCoreApplication.translate("Fasttool_Telegram_UI", u"Buff comment by link Channel", None))
+        self.lineEdit_26.setText("")
+        self.lineEdit_26.setPlaceholderText(QCoreApplication.translate("Fasttool_Telegram_UI", u"\u0110\u01b0\u1eddng d\u1eabn file message", None))
+        self.btn_start_2.setText(QCoreApplication.translate("Fasttool_Telegram_UI", u"Open", None))
+        self.radioButton_24.setText(QCoreApplication.translate("Fasttool_Telegram_UI", u"Buff comment by Link Post", None))
+        self.plainTextEdit_15.setPlaceholderText(QCoreApplication.translate("Fasttool_Telegram_UI", u"Link channel or link post", None))
+        self.plainTextEdit_14.setPlaceholderText(QCoreApplication.translate("Fasttool_Telegram_UI", u"N\u1ed9i dung", None))
         self.comboBox_3.setItemText(0, QCoreApplication.translate("Fasttool_Telegram_UI", u"Get All Member", None))
 
         self.label_2.setText(QCoreApplication.translate("Fasttool_Telegram_UI", u"Total : ", None))
@@ -3513,7 +3636,7 @@ class Ui_Fasttool_Telegram_UI(object):
         self.lineEdit_24.setPlaceholderText(QCoreApplication.translate("Fasttool_Telegram_UI", u"\u0110\u01b0\u1eddng D\u1eabn File....", None))
         self.lineEdit_2.setPlaceholderText(QCoreApplication.translate("Fasttool_Telegram_UI", u"Link group", None))
         self.label_11.setText(QCoreApplication.translate("Fasttool_Telegram_UI", u"Loop", None))
-        self.checkBox_10.setText(QCoreApplication.translate("Fasttool_Telegram_UI", u"RepLy", None))
+        self.checkBox_10.setText(QCoreApplication.translate("Fasttool_Telegram_UI", u"Random repLy", None))
         self.btn_proxy.setText(QCoreApplication.translate("Fasttool_Telegram_UI", u"PROXY", None))
         self.pushButton_9.setText(QCoreApplication.translate("Fasttool_Telegram_UI", u"Import Proxy", None))
         self.pushButton_14.setText(QCoreApplication.translate("Fasttool_Telegram_UI", u"Check Live Proxy", None))

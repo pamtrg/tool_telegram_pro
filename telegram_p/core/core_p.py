@@ -69,6 +69,7 @@ class Core:
         self.signals.stt_fail.connect(self.slot.stt_addmem_fail)
         self.signals.Notif_stt_proxy.connect(self.slot.stt_proxy)
         self.signals.stt_success.connect(self.slot.stt_addmem_success)
+        self.signals.get_admin.connect(self.slot.add_admin)
         # self.startThreads(
         #     getCookie
         # )
@@ -156,6 +157,9 @@ class Core:
         
         self.parent.ui.comboBox_5.addItems([k  for  k in  self.parent.ui.tableWidget__home.config.keys() if k != ""])
 
+        # self.parent.ui.tableWidget__seeding_channel = self.Create_Ui_.Create_TableWidget(
+        #     "tableWidget__seeding_channel", self.parent.ui.horizontalLayout_24)
+        # self.parent.ui.tableWidget__seeding_channel.add_row()
 
         self.parent.ui.tableWidget__seeding = self.Create_Ui_.Create_TableWidget(
             "tableWidget__seeding", self.parent.ui.verticalLayout_29)
@@ -227,11 +231,11 @@ class Core:
         # self.parent.ui.pushButton_15.clicked.connect(lambda:Core_Functions.set_text_open_file(self.parent,QPlainTextEdit= self.parent.ui.plainTextEdit_6))
         # self.parent.ui.pushButton_18.clicked.connect(lambda:Core_Functions.set_text_open_file(self.parent,QLine = self.parent.ui.lineEdit_7))
         # self.parent.ui.pushButton_19.clicked.connect(lambda:Core_Functions.set_text_open_file(self.parent,QLine = self.parent.ui.lineEdit_8))
-
-        # self.parent.ui.pushButton_22.clicked.connect(lambda:Core_Functions.set_text_open_file(self.parent,QLine = self.parent.ui.lineEdit_14,filter = "*.txt"))
-        # self.parent.ui.pushButton_37.clicked.connect(lambda:Core_Functions.set_text_open_file(self.parent,QLine = self.parent.ui.lineEdit_18,filter = "*.txt"))
-        # self.parent.ui.pushButton_48.clicked.connect(lambda:Core_Functions.set_text_open_file(self.parent,QLine = self.parent.ui.lineEdit_13,filter = "Folder"))
-        # self.parent.ui.pushButton_36.clicked.connect(lambda:Core_Functions.set_text_open_file(self.parent,QLine = self.parent.ui.lineEdit_17,filter = "Folder"))
+        self.parent.ui.btn_start_2.clicked.connect(lambda:Core_Functions.set_text_open_file(self.parent,QLine = self.parent.ui.lineEdit_26,filter = "*.txt",QPlainTextEdit= self.parent.ui.plainTextEdit_14))
+        self.parent.ui.pushButton_22.clicked.connect(lambda:Core_Functions.set_text_open_file(self.parent,QLine = self.parent.ui.lineEdit_14,filter = "*.txt"))
+        self.parent.ui.pushButton_37.clicked.connect(lambda:Core_Functions.set_text_open_file(self.parent,QLine = self.parent.ui.lineEdit_18,filter = "*.txt"))
+        self.parent.ui.pushButton_48.clicked.connect(lambda:Core_Functions.set_text_open_file(self.parent,QLine = self.parent.ui.lineEdit_13,filter = "Folder"))
+        self.parent.ui.pushButton_36.clicked.connect(lambda:Core_Functions.set_text_open_file(self.parent,QLine = self.parent.ui.lineEdit_17,filter = "Folder"))
         self.parent.ui.pushButton_8.clicked.connect(
             lambda: 
             self.startThreads(

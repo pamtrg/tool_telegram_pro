@@ -485,7 +485,15 @@ class Core_Functions:
                         'ListIcon':parent.ui.lineEdit_16.text().split(",")
 
                     })
-                   
+                elif otp_tienich == 'Comment channel':
+                    list_enti = parent.ui.plainTextEdit_15.toPlainText().split("\n")
+                    list_text = parent.ui.plainTextEdit_14.toPlainText().split("\n")
+                    condition.update({
+                        'list_text':list_text,
+                        'Otp':Core_Functions.getCheckedRbName(parent.ui.frame_57),
+
+
+                    })
                 elif otp_tienich == 'Scrape Data Message':
                     list_enti = parent.ui.plainTextEdit_13.toPlainText().split("\n")
 
@@ -797,6 +805,9 @@ class Core_Functions:
                 fileName, _ = QFileDialog.getOpenFileName(self,caption="Chọn file ", filter= f"Files ({filter})")
                 if fileName != None:
                     QLine.setText(fileName)
+                if QPlainTextEdit:
+                    list_data = read_file_txt(fileName)
+                    QPlainTextEdit.setPlainText('\n'.join(list_data))
             else:
                 fileName, _ = QFileDialog.getOpenFileName(self,caption="Chọn file ", filter= f"Files (*.txt)")
                 

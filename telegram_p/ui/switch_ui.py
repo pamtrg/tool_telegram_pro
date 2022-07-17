@@ -68,7 +68,8 @@ class switch_Tab:
             self.parent.ui.stackedWidget_3.setCurrentWidget(self.parent.ui.page_10)
         elif value == 'Scrape Data Message':
             self.parent.ui.stackedWidget_3.setCurrentWidget(self.parent.ui.page_6)
-
+        elif value == 'Comment channel':
+            self.parent.ui.stackedWidget_3.setCurrentWidget(self.parent.ui.page_11)
 
     def switch_spam(self,btn : QPushButton):
         Remove_style(self.parent.ui.frame_9.findChildren(QPushButton),btn)
